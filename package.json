@@ -1,0 +1,19 @@
+{
+  "name": "cyypher-playground",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "CyberWebDev",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc && browserify ./dist/index.js -o ./dist/bundle.js"
+  },
+  "dependencies": {
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "ts-node": "^10.9.2"
+  }
+}
