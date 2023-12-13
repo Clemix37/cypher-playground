@@ -6,6 +6,12 @@ class Utils {
     constructor() {
         this.labelTxt = document.getElementById("label-txt");
         this.alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+        this.resultElement = document.getElementById("result-cypher");
+    }
+    //#endregion
+    //#region Public methods
+    displayResult(result) {
+        this.resultElement.innerText = result;
     }
 }
 exports.default = new Utils();

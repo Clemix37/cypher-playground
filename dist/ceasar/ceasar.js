@@ -13,16 +13,15 @@ function cypherCeasar() {
         const actualLetter = txt[i];
         const index = Utils_1.default.alphabet.findIndex(letter => letter === actualLetter);
         const nextLetterIndex = index + delay;
-        result += Utils_1.default.alphabet[nextLetterIndex > Utils_1.default.alphabet.length ? nextLetterIndex - Utils_1.default.alphabet.length : nextLetterIndex];
+        result += Utils_1.default.alphabet[nextLetterIndex >= Utils_1.default.alphabet.length ? nextLetterIndex - (Utils_1.default.alphabet.length - 1) : nextLetterIndex];
     }
-    console.log(result);
+    Utils_1.default.displayResult(result);
     let decypher = "";
     for (let i = 0; i < result.length; i++) {
         const actualLetter = result[i];
         const index = Utils_1.default.alphabet.findIndex(letter => letter === actualLetter);
         const nextLetterIndex = index - delay;
-        decypher += Utils_1.default.alphabet[nextLetterIndex < 0 ? 0 - nextLetterIndex : nextLetterIndex];
+        decypher += Utils_1.default.alphabet[nextLetterIndex < 0 ? (Utils_1.default.alphabet.length - 1) + nextLetterIndex : nextLetterIndex];
     }
-    console.log(decypher);
 }
 exports.cypherCeasar = cypherCeasar;

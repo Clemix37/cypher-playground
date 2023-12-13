@@ -9,17 +9,16 @@ function cypherCeasar():void{
         const actualLetter = txt[i];
         const index = Utils.alphabet.findIndex(letter => letter === actualLetter);
         const nextLetterIndex = index+delay;
-        result += Utils.alphabet[nextLetterIndex > Utils.alphabet.length ? nextLetterIndex - Utils.alphabet.length : nextLetterIndex];
+        result += Utils.alphabet[nextLetterIndex >= Utils.alphabet.length ? nextLetterIndex - (Utils.alphabet.length-1) : nextLetterIndex];
     }
-    console.log(result);
+    Utils.displayResult(result);
     let decypher = "";
     for (let i = 0; i < result.length; i++) {
         const actualLetter = result[i];
         const index = Utils.alphabet.findIndex(letter => letter === actualLetter);
         const nextLetterIndex = index-delay;
-        decypher += Utils.alphabet[nextLetterIndex < 0 ? 0 - nextLetterIndex : nextLetterIndex];
+        decypher += Utils.alphabet[nextLetterIndex < 0 ? (Utils.alphabet.length-1) + nextLetterIndex : nextLetterIndex];
     }
-    console.log(decypher);
 }
 
 export {cypherCeasar};
