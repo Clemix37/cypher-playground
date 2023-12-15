@@ -1,6 +1,12 @@
 import Utils from "../utils/Utils";
 
+//#region Properties & Constants
+
 const delay = 3;
+
+//#endregion
+
+//#region Cypher
 
 function cypherCeasar():void{
     const txt:string = Utils.labelTxt.value;
@@ -15,6 +21,10 @@ function cypherCeasar():void{
     decypherCeasar(result);
 }
 
+//#endregion
+
+//#region Decypher
+
 function decypherCeasar(txt:string):void{
     // const txt:string = Utils.labelTxt.value;
     let decypher = "";
@@ -26,5 +36,7 @@ function decypherCeasar(txt:string):void{
     }
     console.log(decypher);
 }
+
+//#endregion
 
 export {cypherCeasar};

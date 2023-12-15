@@ -5,7 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cypherCeasar = void 0;
 const Utils_1 = __importDefault(require("../utils/Utils"));
+//#region Properties & Constants
 const delay = 3;
+//#endregion
+//#region Cypher
 function cypherCeasar() {
     const txt = Utils_1.default.labelTxt.value;
     let result = "";
@@ -19,6 +22,8 @@ function cypherCeasar() {
     decypherCeasar(result);
 }
 exports.cypherCeasar = cypherCeasar;
+//#endregion
+//#region Decypher
 function decypherCeasar(txt) {
     // const txt:string = Utils.labelTxt.value;
     let decypher = "";
