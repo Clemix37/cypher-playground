@@ -2,15 +2,15 @@ class Utils {
     
     //#region Properties
 
-    labelTxt:HTMLInputElement;
-    alphabet:string[];
-    resultElement:HTMLSpanElement;
+    labelTxt: HTMLInputElement;
+    alphabet: string[];
+    resultElement: HTMLSpanElement;
 
     //#endregion
 
     //#region Constructor
 
-    constructor(){
+    constructor() {
         this.labelTxt = document.getElementById("label-txt") as HTMLInputElement;
         this.alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
         this.resultElement = document.getElementById("result-cypher") as HTMLSpanElement;
@@ -20,7 +20,7 @@ class Utils {
 
     //#region Public methods
 
-    displayResult(result:string){
+    displayResult(result: string) {
         this.resultElement.innerText = result;
     }
 

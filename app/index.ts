@@ -1,4 +1,6 @@
-import { cypherCeasar } from "./ceasar/ceasar";
+import Ceasar from "./ceasar/ceasar";
+import Default from "./default/default";
+import ICypher from "./interfaces/ICypher";
 import Utils from "./utils/Utils";
 
 //#region Properties & Constants
@@ -36,7 +38,10 @@ function displayCyphers():void{
 //#region Cypher
 
 function cypher(){
-    if(selectedCypher === "ceasar") cypherCeasar();
+    let theCypher: ICypher = new Default();
+    if(selectedCypher === "ceasar") theCypher = new Ceasar();
+    const result = theCypher.cypher(Utils.labelTxt.value);
+    Utils.displayResult(result);
 }
 
 //#endregion

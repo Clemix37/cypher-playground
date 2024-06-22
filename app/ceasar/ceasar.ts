@@ -1,42 +1,47 @@
+import ICypher from "../interfaces/ICypher";
 import Utils from "../utils/Utils";
 
-//#region Properties & Constants
+export default class Ceasar implements ICypher {
+    //#region Properties
 
-const delay = 3;
+    #delay = 13;
 
-//#endregion
+    //#endregion
 
-//#region Cypher
+    //#region Constructor
 
-function cypherCeasar():void{
-    const txt:string = Utils.labelTxt.value;
-    let result = "";
-    for (let i = 0; i < txt.length; i++) {
-        const actualLetter = txt[i];
-        const index = Utils.alphabet.findIndex(letter => letter === actualLetter);
-        const nextLetterIndex = index+delay;
-        result += Utils.alphabet[nextLetterIndex >= Utils.alphabet.length ? nextLetterIndex - Utils.alphabet.length : nextLetterIndex];
+    constructor(){
+
     }
-    Utils.displayResult(result);
-    decypherCeasar(result);
-}
 
-//#endregion
+    //#endregion
 
-//#region Decypher
+    //#region Public methods
 
-function decypherCeasar(txt:string):void{
-    // const txt:string = Utils.labelTxt.value;
-    let decypher = "";
-    for (let i = 0; i < txt.length; i++) {
-        const actualLetter = txt[i];
-        const index = Utils.alphabet.findIndex(letter => letter === actualLetter);
-        const nextLetterIndex = index-delay;
-        decypher += Utils.alphabet[nextLetterIndex < 0 ? (Utils.alphabet.length-1) + nextLetterIndex : nextLetterIndex];
+    cypher(msg: string) : string {
+        let result = "";
+        for (let i = 0; i < msg.length; i++) {
+            const actualChar = msg[i];
+            const index = Utils.alphabet.findIndex(letter => letter === actualChar);
+            const nextLetterIndex = index+this.#delay;
+            const isInAlphabet = Utils.alphabet.includes(actualChar);
+            result += isInAlphabet 
+                ? Utils.alphabet[nextLetterIndex >= Utils.alphabet.length ? nextLetterIndex - Utils.alphabet.length : nextLetterIndex]
+                : actualChar;
+        }
+        return result;
     }
-    console.log(decypher);
+
+    decypher(msg: string) : string {
+        let decypher = "";
+        for (let i = 0; i < msg.length; i++) {
+            const actualChar = msg[i];
+            const index = Utils.alphabet.findIndex(letter => letter === actualChar);
+            const nextLetterIndex = index-this.#delay;
+            decypher += Utils.alphabet[nextLetterIndex < 0 ? (Utils.alphabet.length-1) + nextLetterIndex : nextLetterIndex];
+        }
+        return decypher;
+    }
+
+    //#endregion
 }
-
-//#endregion
-
-export {cypherCeasar};

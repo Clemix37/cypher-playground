@@ -3,7 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ceasar_1 = require("./ceasar/ceasar");
+const ceasar_1 = __importDefault(require("./ceasar/ceasar"));
+const default_1 = __importDefault(require("./default/default"));
 const Utils_1 = __importDefault(require("./utils/Utils"));
 //#region Properties & Constants
 const cypherSelect = document.getElementById("select-cypher");
@@ -29,8 +30,11 @@ function displayCyphers() {
 //#endregion
 //#region Cypher
 function cypher() {
+    let theCypher = new default_1.default();
     if (selectedCypher === "ceasar")
-        (0, ceasar_1.cypherCeasar)();
+        theCypher = new ceasar_1.default();
+    const result = theCypher.cypher(Utils_1.default.labelTxt.value);
+    Utils_1.default.displayResult(result);
 }
 //#endregion
 displayCyphers();
